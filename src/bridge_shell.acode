@@ -1,0 +1,19 @@
+module bridge_shell {
+    # Считываем символ из порта через новую системную команду
+    var c = sys.uart_getc()
+    
+    if c != 0 {
+        if c == 13 { # Enter (CR)
+            sys.uart_putc char=10
+            sys.uart_putc char=13
+            # Здесь будет выполнение накопленной команды
+            lume.voice message="Command processed [OK]"
+            
+            sys.uart_putc char=62 # '>'
+            sys.uart_putc char=32 # ' '
+        } else {
+            # Эхо
+            sys.uart_putc char=c
+        }
+    }
+}
