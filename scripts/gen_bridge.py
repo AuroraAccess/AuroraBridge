@@ -1,8 +1,13 @@
 import os
+import sys
 
 # Пути к файлам
 BRIDGE_SRC = "src"
 OUTPUT_HEADER = "../ARM64-core/src/bridge_data.h"
+
+# Если передан аргумент — используем его
+if len(sys.argv) > 1:
+    OUTPUT_HEADER = sys.argv[1]
 
 def generate_header():
     modules = []
