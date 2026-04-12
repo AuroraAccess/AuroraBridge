@@ -1,3 +1,5 @@
+# NOTICE: This file is protected under RCF-PL v1.3
+# [RCF:PROTECTED]
 module bridge_shell {
     # Считываем символ из порта через новую системную команду
     var c = sys.uart_getc()

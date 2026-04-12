@@ -26,7 +26,10 @@ def generate_header():
                 modules.append(f'#define AURORA_{name}_SOURCE "{content}"')
     
     with open(OUTPUT_HEADER, "w") as out:
-        out.write("/* AUTO-GENERATED BRIDGE DATA */\n")
+        out.write("/* NOTICE: This file is protected under RCF-PL v1.3\n")
+        out.write(" * [RCF:PUBLIC]\n")
+        out.write(" * AUTO-GENERATED BRIDGE DATA\n")
+        out.write(" */\n")
         out.write("#ifndef BRIDGE_DATA_H\n")
         out.write("#define BRIDGE_DATA_H\n\n")
         out.write("\n".join(modules))
